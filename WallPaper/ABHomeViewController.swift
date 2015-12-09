@@ -16,11 +16,6 @@ class ABHomeViewController: UITableViewController {
     
     var datas = [AnyObject]()
     
-    /**
-     http://api.lovebizhi.com/iphone_v3.php?a=category&tid=2&device=&uuid=993DF988E9C743F790707CA22AA40189&mode=0&retina=0&client_id=1002&device_id=59864457&model_id=100&size_id=0&channel_id=19953&screen_width=750&screen_height=1334&bizhi_width=1080&bizhi_height=1920&version_code=54&language=zh-Hans-CN&jailbreak=0&mac=7AB9D86B-E75C-4A29-B496-7AD01408D919&order=newest&color_id=3
-     
-     */
-    
     override func viewWillAppear(animated: Bool) {
         self.refresh()
     }
@@ -74,24 +69,22 @@ class ABHomeViewController: UITableViewController {
         cell.logoImageView.kf_setImageWithURL(url!)
         cell.nameLabel.text = dict["name"] as? String
         // Configure the cell...
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let dict = datas[indexPath.row]
+        self.performSegueWithIdentifier("gotoCollectionView", sender: dict)
     }
     
-    // MARK: - IBOutlets
-    
-    
-    
     // MARK: - Navigation
-    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        let collectionVC = segue.destinationViewController as! ABCollectionViewController
+        let dict = sender as! NSDictionary
+        collectionVC.requestURLString = dict["url"] as! String
+        collectionVC.title = dict["name"] as? String
     }
 
     
