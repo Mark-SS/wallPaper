@@ -109,23 +109,30 @@ class ABCollectionViewController: UIViewController, UICollectionViewDataSource, 
             print("currentSelectIndex = \(currentSelectIndex)")
             let photo = images![currentSelectIndex]
             let image = photo.underlyingImage
+            if image == nil {
+                return
+            }
             let actions = UIAlertController(title: "选择", message: nil, preferredStyle: .ActionSheet)
             let lockAction = UIAlertAction(title: "设定锁定屏幕", style: .Default, handler: {(alert: UIAlertAction!) in
-                image.gl_saveLockScreen()
+                image.gll_saveLockScreen()
             })
             let homeAction = UIAlertAction(title: "设定主屏幕", style: .Default, handler: {(alert: UIAlertAction!) in
-                image.gl_saveHomeScreen()
+                image.gll_saveHomeScreen()
             })
             let bothAction = UIAlertAction(title: "同时设定", style: .Default, handler: {(alert: UIAlertAction!) in
-                image.gl_saveHomeScreenAndLockScreen()
+                image.gll_saveHomeScreenAndLockScreen()
             })
-            let cancelAction = UIAlertAction(title: "取消", style: .Default, handler: {(alert: UIAlertAction!) in
+            let photoAction = UIAlertAction(title: "保存到相册", style: .Default, handler: {(alert: UIAlertAction!) in
+                image.gll_saveToPhotos()
+            })
+            let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: {(alert: UIAlertAction!) in
                 actions .dismissViewControllerAnimated(true, completion: nil)
             })
             
             actions.addAction(lockAction)
             actions.addAction(homeAction)
             actions.addAction(bothAction)
+            actions.addAction(photoAction)
             actions.addAction(cancelAction)
             
             browser?.presentViewController(actions, animated: true, completion: nil)

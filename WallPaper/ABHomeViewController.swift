@@ -24,6 +24,8 @@ class ABHomeViewController: UITableViewController {
         super.viewDidLoad()
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -34,10 +36,10 @@ class ABHomeViewController: UITableViewController {
     func refresh() {
         if datas.count == 0 {
             self.refreshControl?.beginRefreshing()
-//            let scale = UIScreen.mainScreen().scale
-//            let widthScale = Int(UIScreen.mainScreen().bounds.width * scale)
-//            let heightScale = Int(UIScreen.mainScreen().bounds.height * scale)
-//            let wallPaperUrl = String(format: kWallpaper_list_categroy, widthScale, heightScale)
+            //            let scale = UIScreen.mainScreen().scale
+            //            let widthScale = Int(UIScreen.mainScreen().bounds.width * scale)
+            //            let heightScale = Int(UIScreen.mainScreen().bounds.height * scale)
+            //            let wallPaperUrl = String(format: kWallpaper_list_categroy, widthScale, heightScale)
             Alamofire.request(.GET, kWallpaper_list_categroy).responseJSON { response in
                 self.refreshControl?.endRefreshing()
                 switch response.result {
@@ -52,6 +54,8 @@ class ABHomeViewController: UITableViewController {
                     print("Request failed with error: \(error)")
                 }
             }
+        } else {
+            self.refreshControl?.endRefreshing()
         }
     }
     
@@ -86,6 +90,6 @@ class ABHomeViewController: UITableViewController {
         collectionVC.requestURLString = dict["url"] as! String
         collectionVC.title = dict["name"] as? String
     }
-
+    
     
 }
