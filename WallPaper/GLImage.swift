@@ -11,15 +11,16 @@ import UIKit
 
 extension UIImage {
     func gll_saveHomeScreenAndLockScreen() {
-        self.gll_wallPaperVC().performSelector("setImageAsHomeScreenAndLockScreenClicked:")
+        
+        self.gll_wallPaperVC().performSelector("setImageAsHomeScreenAndLockScreenClicked:", withObject: nil)
     }
     
     func gll_saveHomeScreen() {
-        self.gll_wallPaperVC().performSelector("setImageAsHomeScreenClicked:")
+        self.gll_wallPaperVC().performSelector("setImageAsHomeScreenClicked:", withObject: nil)
     }
     
     func gll_saveLockScreen() {
-        self.gll_wallPaperVC().performSelector("setImageAsLockScreenClicked:")
+        self.gll_wallPaperVC().performSelector("setImageAsLockScreenClicked:", withObject: nil)
     }
     
     func gll_saveToPhotos() {
@@ -29,8 +30,10 @@ extension UIImage {
     func gll_wallPaperVC() -> NSObject {
         let wallPaperClass = NSClassFromString("PLStaticWallpaperImageViewController") as! NSObject.Type
         let wallPaperInstance: NSObject = wallPaperClass.init()
-        wallPaperInstance.setValue(true, forKey: "allowsEditing")
-        wallPaperInstance.setValue(true, forKey: "saveWallpaperData")
+        wallPaperInstance.performSelector(NSSelectorFromString("initWithUIImage:"), withObject: self)
+        wallPaperInstance.setValue(true, forKeyPath: "allowsEditing")
+        wallPaperInstance.setValue(true, forKeyPath: "saveWallpaperData")
         return wallPaperInstance
     }
 }
+
