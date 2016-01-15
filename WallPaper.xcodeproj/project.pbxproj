@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3E133ABF1C17F4A900A3BB8A /* ABCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E133ABE1C17F4A800A3BB8A /* ABCollectionViewCell.swift */; };
-		3E133AC51C181C1600A3BB8A /* UIImage+GLWallPaper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E133AC41C181C1600A3BB8A /* UIImage+GLWallPaper.m */; };
 		3E133AC91C18211100A3BB8A /* PhotoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E133AC81C18211100A3BB8A /* PhotoLibrary.framework */; };
 		3E42EB921C1134AB00E1DB1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42EB911C1134AB00E1DB1A /* AppDelegate.swift */; };
 		3E42EB941C1134AB00E1DB1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E42EB931C1134AB00E1DB1A /* ViewController.swift */; };
@@ -25,8 +24,6 @@
 /* Begin PBXFileReference section */
 		3E133ABE1C17F4A800A3BB8A /* ABCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E133AC21C181C1500A3BB8A /* WallPaper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WallPaper-Bridging-Header.h"; sourceTree = "<group>"; };
-		3E133AC31C181C1600A3BB8A /* UIImage+GLWallPaper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GLWallPaper.h"; sourceTree = "<group>"; };
-		3E133AC41C181C1600A3BB8A /* UIImage+GLWallPaper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GLWallPaper.m"; sourceTree = "<group>"; };
 		3E133AC61C18204A00A3BB8A /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../PhotoLibrary.framework; sourceTree = "<group>"; };
 		3E133AC81C18211100A3BB8A /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		3E42EB8E1C1134AB00E1DB1A /* WallPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,8 +84,6 @@
 				3EA1E6961C16DA5400592A10 /* ABCollectionViewController.swift */,
 				3E133ABE1C17F4A800A3BB8A /* ABCollectionViewCell.swift */,
 				3EC0A1EE1C44D9CD00945F45 /* GLImage.swift */,
-				3E133AC31C181C1600A3BB8A /* UIImage+GLWallPaper.h */,
-				3E133AC41C181C1600A3BB8A /* UIImage+GLWallPaper.m */,
 				3E42EB951C1134AB00E1DB1A /* Main.storyboard */,
 				3E42EB981C1134AB00E1DB1A /* Assets.xcassets */,
 				3E42EB9A1C1134AB00E1DB1A /* LaunchScreen.storyboard */,
@@ -246,7 +241,6 @@
 				3EA1E6971C16DA5400592A10 /* ABCollectionViewController.swift in Sources */,
 				3E42EB921C1134AB00E1DB1A /* AppDelegate.swift in Sources */,
 				3EC0A1EF1C44D9CD00945F45 /* GLImage.swift in Sources */,
-				3E133AC51C181C1600A3BB8A /* UIImage+GLWallPaper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
